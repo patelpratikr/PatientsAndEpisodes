@@ -44,5 +44,24 @@ namespace RestApi.Controllers
 
             throw new HttpResponseException(HttpStatusCode.NotFound);
         }
+
+        [HttpPost]
+        public Patient Find([FromBody] Patient patient)
+        {
+            var patientsAndEpisodes =
+                from p in patientContext.Patients
+                join e in patientContext.Episodes on p.PatientId equals e.PatientId
+                where p.FirstName == patient.FirstName || p.LastName == patient.LastName || p.NhsNumber == patient.NhsNumber || p.DateOfBirth == patient.DateOfBirth
+                select new { p, e };
+
+            if (patientsAndEpisodes.Any())
+            {
+                var first = patientsAndEpisodes.First().p;
+                first.Episodes = patientsAndEpisodes.Select(x => x.e).ToArray();
+                return first;
+            }
+
+            throw new HttpResponseException(HttpStatusCode.NotFound);
+        }
     }
 }
