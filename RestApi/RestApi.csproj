@@ -218,7 +218,6 @@
     <Compile Include="Models\Patient.cs" />
     <Compile Include="Models\PatientContext.cs" />
     <Compile Include="Models\PatientInitialiser.cs" />
-    <Compile Include="Models\UnityResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
