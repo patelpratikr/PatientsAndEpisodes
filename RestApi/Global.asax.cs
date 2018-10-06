@@ -23,6 +23,7 @@ namespace RestApi
         {
             AreaRegistration.RegisterAllAreas();
 
+            // Create the container and set the dependency resolver
             var container = Bootstrapper.Initialize();
             GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
 

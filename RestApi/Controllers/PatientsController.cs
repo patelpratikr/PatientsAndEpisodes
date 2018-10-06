@@ -8,8 +8,12 @@ using RestApi.Models;
 
 namespace RestApi.Controllers
 {
+    /// <summary>
+    /// Patients Controller class
+    /// </summary>
     public class PatientsController : ApiController, RestApi.Interfaces.IPatientsController
     {
+        // Private properties for DI
         private IPatientContext patientContext;
 
         public PatientsController(IPatientContext patientContext)

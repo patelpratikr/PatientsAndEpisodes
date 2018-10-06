@@ -12,6 +12,7 @@ namespace RestApi
   {
       public static IUnityContainer Initialize()
       {
+          // Create the DI container and register all the types
           var container = new UnityContainer();
           container.RegisterType<IPatientsController, PatientsController>();
           container.RegisterType<IPatientContext, PatientContext>();
